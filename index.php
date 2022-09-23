@@ -6,6 +6,7 @@
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.css">
+	<link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
@@ -14,17 +15,15 @@
 <body>
 
 	<div>
-		<label class="mdc-text-field mdc-text-field--filled username">
-		<span class="mdc-text-field__ripple"></span>
-		<input type="text" class="mdc-text-field__input" aria-labelledby="username-label" name="username">
-		<span class="mdc-floating-label" id="username-label">Username</span>
-		<span class="mdc-line-ripple"></span>
-		</label>
-		<label class="mdc-text-field mdc-text-field--filled password">
-		<span class="mdc-text-field__ripple"></span>
-		<input type="password" class="mdc-text-field__input" aria-labelledby="password-label" name="password">
-		<span class="mdc-floating-label" id="password-label">Password</span>
-		<span class="mdc-line-ripple"></span>
+		<label class="mdc-text-field mdc-text-field--outlined">
+		<span class="mdc-notched-outline">
+		<span class="mdc-notched-outline__leading"></span>
+		<span class="mdc-notched-outline__notch">
+		<span class="mdc-floating-label" id="my-label-id">Your Name</span>
+		</span>
+		<span class="mdc-notched-outline__trailing"></span>
+		</span>
+		<input type="text" class="mdc-text-field__input" aria-labelledby="my-label-id">
 		</label>
 	</div>
 	
