@@ -8,12 +8,12 @@ include("lib.php");
 
 // CONFIGURAÇÕES
 
-$posID = isset($_POST["posID"]) ? $_POST["posID"] : "90051";
-$posAutCode = isset($_POST["posAutCode"]) ? $_POST["posAutCode"] : "123456789A";
+$posID = "90000265";
+$posAutCode = "cGq8IlXTlPRC3FQA";
 
 // OBTER DADOS DE PAGAMENTO
 
-$amount = isset($_POST["amount"]) ? $_POST["amount"] : "1000";
+$amount = isset($_POST["amount"]) ? $_POST["amount"] : "";
 $merchantRef = isset($_POST["merchantRef"]) ? $_POST["merchantRef"] : "R" . date('YmdHms');
 $merchantSession = isset($_POST["merchantSession"]) ? $_POST["merchantSession"] : "S" . date('YmdHms');
 $dateTime = isset($_POST["timestamp"]) ? $_POST["timestamp"] : date('Y-m-d H:m:s');
@@ -22,13 +22,13 @@ $dateTime = isset($_POST["timestamp"]) ? $_POST["timestamp"] : date('Y-m-d H:m:s
 // 1 - COMPRA
 // 2 - PAGAMENTO DE SERVICO
 // 3 - RECARGA
-$transactionCode = isset($_POST["transactionCode"]) ? $_POST["transactionCode"] : "1";
+$transactionCode = "3";
 
-$entityCode = isset($_POST["entityCode"]) ? $_POST["entityCode"] : "";
+$entityCode = "48";
 $referenceNumber = isset($_POST["referenceNumber"]) ? $_POST["referenceNumber"] : "";
 
 // PREPARAR DADOS PARA EFETUAR REQUISIÇÃO/REQUEST
-$responseUrl = $_POST["urlMerchantResponse"];
+$responseUrl = 'http://localhost/php/callback.php';
 
 $fields = [
 	'transactionCode' => $transactionCode,
@@ -56,7 +56,7 @@ $fields['fingerprint'] = GerarFingerPrintEnvio(
 
 // FAZER REQUISIÇÃO
 
-$postUrl = "https://mc.vinti4net.cv/BizMPIOnUs/CardPayment?FingerPrint=" . urlencode($fields["fingerprint"]) . "&TimeStamp=" . urlencode($fields["timeStamp"]) . "&FingerPrintVersion=" . urlencode($fields["fingerprintversion"]);
+$postUrl = "https://www.vinti4net.cv/bizmpi/CardPayment?FingerPrint=" . urlencode($fields["fingerprint"]) . "&TimeStamp=" . urlencode($fields["timeStamp"]) . "&FingerPrintVersion=" . urlencode($fields["fingerprintversion"]);
 
 ?>
 
