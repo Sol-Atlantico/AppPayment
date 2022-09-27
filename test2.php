@@ -2,19 +2,12 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	
 	<title>Compra efetuado pelo comerciante</title>
 	
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 	<link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-	<link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  
-	<script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
-
+	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
@@ -22,30 +15,13 @@
   	<script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
 	<script src="material.js"></script>
 
+	<style>
+		
+	</style>
 </head>
 <body>	
 	<div class="container">
-
-	<span class="mdc-evolution-chip-set" role="grid">
-  <span class="mdc-evolution-chip-set__chips" role="presentation">
-    <span class="mdc-evolution-chip" role="row" id="c0">
-      <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary" role="gridcell">
-        <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary" type="button" tabindex="0">
-          <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary"></span>
-          <span class="mdc-evolution-chip__text-label">Chip one</span>
-        </button>
-      </span>
-    </span>
-    <span class="mdc-evolution-chip" role="row" id="c1">
-      <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary" role="gridcell">
-        <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary" type="button" tabindex="-1">
-          <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary"></span>
-          <span class="mdc-evolution-chip__text-label">Chip two</span>
-        </button>
-      </span>
-    </span>
-  </span>
-</span>
+		<p>Denilson Semedo Tavares</p>
 		<form method="post" id="form1" action="postback.php">
 			<div class="row">
 				<div>
@@ -84,16 +60,16 @@
 					</label>
 				</div>
 
-				<div class="col-6">
+				<!--<div class="col-6">
 					<div class="form-group">
 						<label for="amount">amount</label>
 						<input type="number" class="form-control" id="amount" value="1000" name="amount">
 					</div>
-				</div>
+				</div>-->
 			</div>
 			<div class="col-6">
 				<button class="mdc-button mdc-button--raised">
-					<span class="mdc-button__label">Recarregar</span>
+					<span class="mdc-button__label">Efetuar pagamento</span>
 				</button>	
 			</div>		
 		</form>
