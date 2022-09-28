@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- Required styles for Material Web -->
+    <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
+</head>
+
+<body>
+    <!-- Render Select component -->
+    <div class="mdc-chip-set" role="grid">
+        <div class="mdc-chip mdc-ripple-upgraded" role="row" id="mdc-chip-26">
+            <div class="mdc-chip__ripple"></div>
+            <div class="mdc-chip__text">Chip One</div><span role="gridcell"><span role="button" tabindex="0"
+                    class="mdc-chip__text">Chip Two</span></span>
+        </div>
+        <div class="mdc-chip mdc-ripple-upgraded" role="row" id="mdc-chip-27">
+            <div class="mdc-chip__ripple"></div>
+            <div class="mdc-chip__text">Chip Two</div><span role="gridcell"><span role="button" tabindex="0"
+                    class="mdc-chip__text">Chip Two</span></span>
+        </div>
+        <div class="mdc-chip mdc-ripple-upgraded" role="row" id="mdc-chip-28">
+            <div class="mdc-chip__ripple"></div>
+            <div class="mdc-chip__text">Chip Three</div><span role="gridcell"><span role="button" tabindex="0"
+                    class="mdc-chip__text">Chip Two</span></span>
+        </div>
+        <div class="mdc-chip mdc-ripple-upgraded" role="row" id="mdc-chip-29">
+            <div class="mdc-chip__ripple"></div>
+            <div class="mdc-chip__text">Chip Four</div><span role="gridcell"><span role="button" tabindex="0"
+                    class="mdc-chip__text">Chip Two</span></span>
+        </div>
+    </div>
+
+    <!-- Required Material Web JavaScript library -->
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    <script type="text/javascript" src="/material-components-web-catalog/static/js/main.a88a1f88.js"></script>
+    <!-- Instantiate single textfield component rendered in the document -->
+    <script>
+        mdc.select.MDCSelect.attachTo(document.querySelector('.mdc-select'));
+    </script>
+    <script type="text/javascript" src="/material-components-web-catalog/static/js/main.a88a1f88.js"></script>
+</body>
+
+</html>
