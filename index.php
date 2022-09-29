@@ -10,14 +10,58 @@
 	<link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <style>
+    .mdc-text-field{
+      height: 40px;
+      margin-top: 25px;
+    }
+
+    #btn{
+      height: 40px;
+      margin-top: 15px;
+      /* color: aqua; */
+      background-color: #007CBA;
+    }
+  </style>
 </head>
-<body>	
+<body>
+<script>
+
+  function verifieCod(codigo) {
+    if ($.isNumeric(codigo) && codigo.length == 7) {
+      console.log('1');
+      console.log( 'tamanho: ' + codigo.length);
+      return true;
+    } else {
+      console.log('2');
+      return false;
+    }
+  }
+
+  $(document).ready(function() {
+    $('#btn').click(function() {
+      var cod = $('#referenceNumber').val();
+      if (cod != null) { 
+        if (verifieCod(cod)) {
+          $.get('ApiCall.php', {codigo: cod}, function (response) {
+              var card = JSON.parse(response)
+              alert("action performed successfully");
+              console.log(card.tipo);
+          });
+        } else {
+          console.log('error')
+        } 
+      }
+    });
+  });
+
+</script>	
 	<div class="container">
 		<form method="post" id="form1" action="<?php echo htmlspecialchars("postback.php");?>">
 			<div class="row">
 				<div>
 					<!-- Render Select component -->
-					<div class="mdc-select mdc-select--outlined">
+					<!--<div class="mdc-select mdc-select--outlined">
             <div class="mdc-select__anchor" aria-labelledby="outlined-select-label">
               <span class="mdc-notched-outline">
                 <span class="mdc-notched-outline__leading"></span>
@@ -47,10 +91,10 @@
                   </polygon>
                 </svg>
               </span>
-            </div>
+            </div> -->
           
             <!-- Other elements from the select remain. -->
-            <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
+            <!--<div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
                 <ul class="mdc-deprecated-list" role="listbox" aria-label="Food picker listbox">
                     <li class="mdc-deprecated-list-item" aria-selected="false" data-value="geral" role="option">
                       <span class="mdc-deprecated-list-item__ripple"></span>
@@ -73,7 +117,7 @@
                   </ul>
             </div>
           </div>
-					</div>
+					</div> -->
 					
 					<label class="mdc-text-field mdc-text-field--outlined">
 					<span class="mdc-notched-outline">
@@ -87,19 +131,52 @@
 					</label>
 				</div>
 
-				<div class="col-6">
+        <div>
+          <p>Passe Estudante</p>
+        </div>
+
+        <div id="chips" >
+          <!-- Render chip components -->
+          <div class="mdc-chip-set" role="grid">
+              <div class="mdc-chip mdc-ripple-upgraded" role="row" id="mdc-chip-26">
+                  <div class="mdc-chip__ripple"></div>
+                  <div class="mdc-chip__text">Selo (2500$00)</div><span role="gridcell"><span role="button" tabindex="0"
+                          class="mdc-chip__text"></span></span>
+              </div>
+              <div class="mdc-chip mdc-ripple-upgraded" role="row" id="mdc-chip-27">
+                  <div class="mdc-chip__ripple"></div>
+                  <div class="mdc-chip__text">5 Viagens (215$00)</div><span role="gridcell"><span role="button" tabindex="0"
+                          class="mdc-chip__text"></span></span>
+              </div>
+              <div class="mdc-chip mdc-ripple-upgraded" role="row" id="mdc-chip-28">
+                  <div class="mdc-chip__ripple"></div>
+                  <div class="mdc-chip__text">10 Viagens (430$00)</div><span role="gridcell"><span role="button" tabindex="0"
+                          class="mdc-chip__text"></span></span>
+              </div>
+              <div class="mdc-chip mdc-ripple-upgraded" role="row" id="mdc-chip-29">
+                  <div class="mdc-chip__ripple"></div>
+                  <div class="mdc-chip__text">15 Viagens (645$00)</div><span role="gridcell"><span role="button" tabindex="0"
+                          class="mdc-chip__text"></span></span>
+              </div>
+          </div>
+        </div>
+
+				<!--<div class="col-6">
 					<div class="form-group">
 						<label for="amount">amount</label>
 						<input type="number" class="form-control" id="amount" value="1000" name="amount">
 					</div>
-				</div>
+				</div>-->
 			</div>
 			<div class="col-6">
-				<button class="mdc-button mdc-button--raised">
+				<!--<button id="btn" class="mdc-button mdc-button--raised">
 					<span class="mdc-button__label">Recarregar</span>
-				</button>	
+				</button>	-->
 			</div>		
 		</form>
+    <button id="btn" class="mdc-button mdc-button--raised">
+					<span class="mdc-button__label">Recarregar</span>
+				</button>
 	</div>
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
@@ -110,25 +187,10 @@
     <!-- Instantiate single textfield component rendered in the document -->
     
 	<script>
-		mdc.select.MDCSelect.attachTo(document.querySelector('.mdc-select'));
 		mdc.textField.MDCTextField.attachTo(document.querySelector('.mdc-text-field'));
-    </script>
+  </script>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-	<script>
-		$.ajax({
-            url: 'https://www.yii2.solatlantico.cv/api/inspeccoes',
-            type: 'GET',
-            crossDomain: true,
-   			dataType: 'jsonp',
-            success: function(data,textStatus,xhr){
-                console.log(data);
-            },
-            error: function(xhr,textStatus,errorThrown){
-                console.log('Error Something');
-            }
-        });
-	</script>
 	
 	<script>
 		// AUTO PREENCHER ALGUNS CAMPOS

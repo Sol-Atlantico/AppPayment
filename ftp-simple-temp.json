@@ -1,0 +1,12 @@
+[
+	{
+		"name": "localhost",
+		"host": "ftp.solatlantico.cv",
+		"port": 21,
+		"type": "ftp",
+		"username": "ftp_pagamentos",
+		"password": "#ftp_pagamentos2022",
+		"autosave": true,
+		"confirm": true
+	}
+]
