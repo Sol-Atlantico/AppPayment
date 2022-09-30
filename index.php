@@ -14,6 +14,7 @@
     .mdc-text-field{
       height: 40px;
       margin-top: 25px;
+      width: 100%;
     }
 
     #btn{
@@ -22,11 +23,29 @@
       /* color: aqua; */
       background-color: #007CBA;
     }
+
+    #colun1, #colun2{
+      display: flex;
+      flex-direction: column;
+    }
+
+    .col-69{
+      display: none
+    }
+
+    .mdc-select--outlined .mdc-select__anchor{
+      margin-top: 25px;
+      height: 40px;
+    }
+    
+    .mdc-select--outlined{
+      width: 100%
+    }
+
   </style>
 </head>
 <body>
 <script>
-
   function verifieCod(codigo) {
     if ($.isNumeric(codigo) && codigo.length == 7) {
       console.log('1');
@@ -41,6 +60,7 @@
   $(document).ready(function() {
     $('#btn').click(function() {
       var cod = $('#referenceNumber').val();
+      console.log(cod);
       if (cod != null) { 
         if (verifieCod(cod)) {
           $.get('ApiCall.php', {codigo: cod}, function (response) {
@@ -48,10 +68,37 @@
               alert("action performed successfully");
               console.log(card.tipo);
           });
+          
         } else {
           console.log('error')
         } 
       }
+    });
+
+    $('.estudante').click(function(){
+      $('#amount').val('2300');
+    });
+    $('.geral').click(function(){
+      $('#amount').val('2900');
+      console.log($('#amount').val());
+    });
+    $('.idoso').click(function(){
+      $('#amount').val('2100');
+      console.log($('#amount').val());
+    });
+    $('.5viagen').click(function(){
+      $('#amount').val('215');
+      var con = $('#amount').val();
+      console.log(con);
+      alert(con);
+    });
+    $('.10viagen').click(function(){
+      $('#amount').val('430');
+      console.log($('#amount').val());
+    });
+    $('.15viagen').click(function(){
+      $('#amount').val('645');
+      console.log($('#amount').val());
     });
   });
 
@@ -60,65 +107,6 @@
 		<form method="post" id="form1" action="<?php echo htmlspecialchars("postback.php");?>">
 			<div class="row">
 				<div>
-					<!-- Render Select component -->
-					<!--<div class="mdc-select mdc-select--outlined">
-            <div class="mdc-select__anchor" aria-labelledby="outlined-select-label">
-              <span class="mdc-notched-outline">
-                <span class="mdc-notched-outline__leading"></span>
-                <span class="mdc-notched-outline__notch">
-                  <span id="outlined-select-label" class="mdc-floating-label">Tipo de Passe</span>
-                </span>
-                <span class="mdc-notched-outline__trailing"></span>
-              </span>
-              <span class="mdc-select__selected-text-container">
-                <span id="demo-selected-text" class="mdc-select__selected-text"></span>
-              </span>
-              <span class="mdc-select__dropdown-icon">
-                <svg
-                    class="mdc-select__dropdown-icon-graphic"
-                    viewBox="7 10 10 5" focusable="false">
-                  <polygon
-                      class="mdc-select__dropdown-icon-inactive"
-                      stroke="none"
-                      fill-rule="evenodd"
-                      points="7 10 12 15 17 10">
-                  </polygon>
-                  <polygon
-                      class="mdc-select__dropdown-icon-active"
-                      stroke="none"
-                      fill-rule="evenodd"
-                      points="7 15 12 10 17 15">
-                  </polygon>
-                </svg>
-              </span>
-            </div> -->
-          
-            <!-- Other elements from the select remain. -->
-            <!--<div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
-                <ul class="mdc-deprecated-list" role="listbox" aria-label="Food picker listbox">
-                    <li class="mdc-deprecated-list-item" aria-selected="false" data-value="geral" role="option">
-                      <span class="mdc-deprecated-list-item__ripple"></span>
-                      <span class="mdc-deprecated-list-item__text">
-                        Geral
-                      </span>
-                    </li>
-                    <li class="mdc-deprecated-list-item " aria-selected="false" data-value="estudante" role="option">
-                      <span class="mdc-deprecated-list-item__ripple"></span>
-                      <span class="mdc-deprecated-list-item__text">
-                        Estudante
-                      </span>
-                    </li>
-                    <li class="mdc-deprecated-list-item" aria-selected="false" data-value="3idade" role="option">
-                      <span class="mdc-deprecated-list-item__ripple"></span>
-                      <span class="mdc-deprecated-list-item__text">
-                        3ª Idade
-                      </span>
-                    </li>
-                  </ul>
-            </div>
-          </div>
-					</div> -->
-					
 					<label class="mdc-text-field mdc-text-field--outlined">
 					<span class="mdc-notched-outline">
 						<span class="mdc-notched-outline__leading"></span>
@@ -128,65 +116,96 @@
 						<span class="mdc-notched-outline__trailing"></span>
 					</span>
 					<input id="referenceNumber" name="referenceNumber" type="text" class="mdc-text-field__input" aria-labelledby="my-label-id">
-					</label>
-				</div>
+					</label>        
 
-        <div>
-          <p>Passe Estudante</p>
+          <div class="mdc-select mdc-select--outlined">
+  <div class="mdc-select__anchor" aria-labelledby="outlined-select-label">
+    <span class="mdc-notched-outline">
+      <span class="mdc-notched-outline__leading"></span>
+      <span class="mdc-notched-outline__notch">
+        <span id="outlined-select-label" class="mdc-floating-label">Montante</span>
+      </span>
+      <span class="mdc-notched-outline__trailing"></span>
+    </span>
+    <span class="mdc-select__selected-text-container">
+      <span id="demo-selected-text" class="mdc-select__selected-text"></span>
+    </span>
+    <span class="mdc-select__dropdown-icon">
+      <svg
+          class="mdc-select__dropdown-icon-graphic"
+          viewBox="7 10 10 5" focusable="false">
+        <polygon
+            class="mdc-select__dropdown-icon-inactive"
+            stroke="none"
+            fill-rule="evenodd"
+            points="7 10 12 15 17 10">
+        </polygon>
+        <polygon
+            class="mdc-select__dropdown-icon-active"
+            stroke="none"
+            fill-rule="evenodd"
+            points="7 15 12 10 17 15">
+        </polygon>
+      </svg>
+    </span>
+  </div>
+
+  <!-- Other elements from the select remain. -->
+  <div class="mdc-select__menu demo-width-class mdc-menu mdc-menu-surface">
+          <ul class="mdc-list">
+            <li class="mdc-list-item" data-value="">
+              <span class="mdc-list-item__ripple"></span>
+            </li>
+            <li class="mdc-list-item estudante" data-value="estudante">
+              <span class="mdc-list-item__ripple"></span>
+              <span class="mdc-list-item__text">Estudante (2300$00)</span>
+            </li>
+            <li class="mdc-list-item geral" data-value="geral" aria-selected="true">
+              <span class="mdc-list-item__ripple"></span>
+              <span class="mdc-list-item__text">Geral (2900$00)</span>
+            </li>
+            <li class="mdc-list-item idoso" data-value="idoso">
+              <span class="mdc-list-item__ripple"></span>
+              <span class="mdc-list-item__text">3ª Idade (2100$00)</span>
+            </li>
+            <li class="mdc-list-item 5viagen" data-value="5viagen">
+              <span class="mdc-list-item__ripple"></span>
+              <span class="mdc-list-item__text">5 Viagens (215$00)</span>
+            </li>
+            <li class="mdc-list-item 10viagen" data-value="10viagen">
+              <span class="mdc-list-item__ripple"></span>
+              <span class="mdc-list-item__text">10 Viagens (430$00)</span>
+            </li>
+            <li class="mdc-list-item 15viagen" data-value="15viagen">
+              <span class="mdc-list-item__ripple"></span>
+              <span class="mdc-list-item__text">15 Viagens (645$00)</span>
+            </li>
+          </ul>
         </div>
 
-        <div id="chips" >
-          <!-- Render chip components -->
-          <div class="mdc-chip-set" role="grid">
-              <div class="mdc-chip mdc-ripple-upgraded" role="row" id="mdc-chip-26">
-                  <div class="mdc-chip__ripple"></div>
-                  <div class="mdc-chip__text">Selo (2500$00)</div><span role="gridcell"><span role="button" tabindex="0"
-                          class="mdc-chip__text"></span></span>
-              </div>
-              <div class="mdc-chip mdc-ripple-upgraded" role="row" id="mdc-chip-27">
-                  <div class="mdc-chip__ripple"></div>
-                  <div class="mdc-chip__text">5 Viagens (215$00)</div><span role="gridcell"><span role="button" tabindex="0"
-                          class="mdc-chip__text"></span></span>
-              </div>
-              <div class="mdc-chip mdc-ripple-upgraded" role="row" id="mdc-chip-28">
-                  <div class="mdc-chip__ripple"></div>
-                  <div class="mdc-chip__text">10 Viagens (430$00)</div><span role="gridcell"><span role="button" tabindex="0"
-                          class="mdc-chip__text"></span></span>
-              </div>
-              <div class="mdc-chip mdc-ripple-upgraded" role="row" id="mdc-chip-29">
-                  <div class="mdc-chip__ripple"></div>
-                  <div class="mdc-chip__text">15 Viagens (645$00)</div><span role="gridcell"><span role="button" tabindex="0"
-                          class="mdc-chip__text"></span></span>
-              </div>
-          </div>
-        </div>
 
-				<!--<div class="col-6">
+				<div class="col-69">
 					<div class="form-group">
 						<label for="amount">amount</label>
-						<input type="number" class="form-control" id="amount" value="1000" name="amount">
+						<input type="number" class="form-control" id="amount" name="amount">
 					</div>
-				</div>-->
+				</div>
 			</div>
 			<div class="col-6">
-				<!--<button id="btn" class="mdc-button mdc-button--raised">
-					<span class="mdc-button__label">Recarregar</span>
-				</button>	-->
-			</div>		
-		</form>
-    <button id="btn" class="mdc-button mdc-button--raised">
+				<button id="btn" class="mdc-button mdc-button--raised">
 					<span class="mdc-button__label">Recarregar</span>
 				</button>
+			</div>		
+		</form>
 	</div>
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/js-sha512/0.8.0/sha512.js"></script>
-	<!-- Required Material Web JavaScript library -->
 	<script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
 	<script type="text/javascript" src="/material-components-web-catalog/static/js/main.a88a1f88.js"></script>
-    <!-- Instantiate single textfield component rendered in the document -->
     
 	<script>
+    mdc.select.MDCSelect.attachTo(document.querySelector('.mdc-select'));
 		mdc.textField.MDCTextField.attachTo(document.querySelector('.mdc-text-field'));
   </script>
 

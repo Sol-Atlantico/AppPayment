@@ -8,8 +8,8 @@ include("lib.php");
 
 // CONFIGURAÇÕES
 
-$posID = "90000265";
-$posAutCode = "cGq8IlXTlPRC3FQA";
+$posID = "90000146";
+$posAutCode = "7O6WoWTSh8kGMIes";
 
 // OBTER DADOS DE PAGAMENTO
 
@@ -56,7 +56,7 @@ $fields['fingerprint'] = GerarFingerPrintEnvio(
 
 // FAZER REQUISIÇÃO
 
-$postUrl = "https://www.vinti4net.cv/bizmpi/CardPayment?FingerPrint=" . urlencode($fields["fingerprint"]) . "&TimeStamp=" . urlencode($fields["timeStamp"]) . "&FingerPrintVersion=" . urlencode($fields["fingerprintversion"]);
+$postUrl = "https://mc.vinti4net.cv/BizMPIOnUsSisp/CardPayment?FingerPrint=" . urlencode($fields["fingerprint"]) . "&TimeStamp=" . urlencode($fields["timeStamp"]) . "&FingerPrintVersion=" . urlencode($fields["fingerprintversion"]);
 
 ?>
 
