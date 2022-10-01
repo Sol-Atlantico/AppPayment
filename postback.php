@@ -28,7 +28,7 @@ $entityCode = "48";
 $referenceNumber = isset($_POST["referenceNumber"]) ? $_POST["referenceNumber"] : "";
 
 // PREPARAR DADOS PARA EFETUAR REQUISIÇÃO/REQUEST
-$responseUrl = 'http://localhost/php/callback.php';
+$responseUrl = 'https://pagamentos.solatlantico.cv/callback.php'; 
 
 $fields = [
 	'transactionCode' => $transactionCode,

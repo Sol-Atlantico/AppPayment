@@ -5,7 +5,7 @@
 // resposta_pagamento.php
 
 // OBTER DADOS
-$posAutCode = "123456789A";
+$posAutCode = "7O6WoWTSh8kGMIes";
 
 // CONSTANTES DE RESPOSTA DE SUCESSOS
 $successMessageType = array('8', '10', 'P', 'M');
