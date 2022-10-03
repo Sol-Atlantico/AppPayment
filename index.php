@@ -11,6 +11,9 @@
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <style>
+    form{
+      padding: 10px;
+    }
     .mdc-text-field{
       height: 40px;
       margin-top: 25px;
