@@ -32,16 +32,15 @@ if(isset($_POST["messageType"]) && in_array($_POST["messageType"], $successMessa
 	if($_POST["resultFingerPrint"] == $fingerPrintCalculado)
 	{
 		// TRANSACAO BEM SUCEDIDA
-		echo "<img src="sucesso.svg" width="500" height="600">"
-		echo "<h1>Pagamento Realizado Com Sucesso</h1>";
+		echo "<img src='sucesso.svg' width='125px' height='150px'>";
+		echo "<p>Pagamento Realizado Com Sucesso</p>";
 
 	}
 	else
 	{
 		// FINGER PRINT RECEBIDO E CALCULADO SAO DIFERENTES
-		echo "<img src="error.svg" width="500" height="600">"
-		echo "<h1>Pagamento Inválido</h1>";
-		echo "<p>Finger Print de Resposta Inválida</p>";
+		echo "<img src='error.svg' width='125px' height='150px'>";
+		echo "<p>Pagamento Inválido</p>";
 	}
 }
 else if(isset($_POST["UserCancelled"]) && $_POST["UserCancelled"] == "true")
@@ -70,6 +69,13 @@ else
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+	<style>
+		body{
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+	</style>
 </head>
 <body>
 
